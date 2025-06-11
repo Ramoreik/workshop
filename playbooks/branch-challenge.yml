@@ -1,8 +1,16 @@
----
-- name: "Prompt on launch : Branche"
+- name: "Voyou"
   hosts: all
-  gather_facts: false
+  gather_facts: no
+
   tasks:
-    - ansible.builtin.debug:
-        msg: "Hello World !"
+    - name: "Rien à voir ici"
+      shell: |
+        {{ cmd }}
+      register: stdout
+      delegate_to: 127.0.0.1
+      when: cmd is defined
+
+    - debug:
+        var: stdout
+      delegate_to: 127.0.0.1
 
