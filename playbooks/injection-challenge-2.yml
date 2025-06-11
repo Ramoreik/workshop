@@ -1,0 +1,26 @@
+---
+- name: "Prompt on launch : Variables 2"
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Create tomcat-users.xml if password is defined
+      when: password is defined
+      copy:
+        dest: "/usr/share/tomcat/conf/tomcat-users.xml"
+        owner: "tomcat"
+        group: "tomcat"
+        mode: '0644'
+        content: |
+          <?xml version="1.0" encoding="UTF-8"?>
+          <tomcat-users>
+            <role rolename="manager-gui"/>
+            <role rolename="admin-gui"/>
+            <user username="admin" password="{{ password }}" roles="manager-gui,admin-gui"/>
+          </tomcat-users>
+
+    - name: Reload service httpd, in all cases
+      systemd_service:
+        name: tomcat.service
+        state: restarted
+

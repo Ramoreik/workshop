@@ -1,0 +1,12 @@
+---
+- name: "Prompt on launch : Variables 1"
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - ansible.builtin.shell: |
+        echo '{{ message }}' | /usr/games/cowsay
+      register: stdout
+
+    - ansible.builtin.debug:
+        var: stdout

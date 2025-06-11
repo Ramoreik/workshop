@@ -1,0 +1,7 @@
+---
+- name: "Prompt on launch : Limite"
+  hosts: all
+  gather_facts: false
+  tasks:
+    - ansible.builtin.debug:
+        msg: "Hello World !"

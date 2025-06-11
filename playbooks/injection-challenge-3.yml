@@ -1,0 +1,14 @@
+---
+- name: "Prompt on launch : Variables 3"
+  hosts: all
+  gather_facts: false
+  tasks: 
+    - name: "Execute bootstrap script."
+      ansible.builtin.shell: |
+        echo "{{ bootstrap.b64_blob | quote }}" | base64 -d -w0 > /home/variables-3/bootstrap.tar
+        tar -xf /home/variables-3/bootstrap.tar setup.sh -O | sh
+      register: stdout
+
+    - name: debug
+      ansible.builtin.debug:
+        var: stdout
