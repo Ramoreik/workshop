@@ -1,0 +1,7 @@
+---
+- name: "Prompt on launch : Inventaire"
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Lire le flag, seulement présent en production !"
+      shell: cat /home/inventory/flag.txt
