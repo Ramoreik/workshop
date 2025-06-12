@@ -20,7 +20,5 @@
           </tomcat-users>
 
     - name: Reload service httpd, in all cases
-      become: yes
-      become_method: sudo
-      shell: /usr/bin/systemctl restart tomcat
+      shell: sudo /usr/bin/systemctl restart tomcat
 
