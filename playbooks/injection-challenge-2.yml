@@ -8,9 +8,9 @@
       when: password is defined
       copy:
         dest: "/usr/share/tomcat/conf/tomcat-users.xml"
-        owner: "tomcat"
+        owner: "variables-2"
         group: "tomcat"
-        mode: '0644'
+        mode: '0660'
         content: |
           <?xml version="1.0" encoding="UTF-8"?>
           <tomcat-users>
