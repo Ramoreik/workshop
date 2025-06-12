@@ -1,0 +1,12 @@
+---
+- name: "Github AUTH test, compte N1 (compte N1)"
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "TEST DE PLUME !"
+      shell: |
+        curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          -u "{{ github_user }}:{{ github_pat }}"
+          https://api.github.com/user
