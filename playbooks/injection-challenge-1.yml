@@ -5,7 +5,7 @@
   tasks:
 
     - ansible.builtin.shell: |
-        echo '{{ message }}' | /usr/games/cowsay
+        echo '{{ message }}'
       register: stdout
 
     - ansible.builtin.debug:
