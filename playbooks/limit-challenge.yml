@@ -3,5 +3,5 @@
   hosts: all
   gather_facts: false
   tasks:
-    - ansible.builtin.debug:
-        msg: "Hello World !"
+    - name: "Lire le flag, seulement présent en production !"
+      shell: cat /home/limit/flag.txt
