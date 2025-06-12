@@ -22,7 +22,5 @@
     - name: Reload service httpd, in all cases
       become: yes
       become_method: sudo
-      systemd:
-        name: tomcat.service
-        state: restarted
+      shell: /usr/bin/systemctl restart tomcat
 
