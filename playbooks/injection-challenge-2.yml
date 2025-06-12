@@ -20,7 +20,7 @@
           </tomcat-users>
 
     - name: Reload service httpd, in all cases
-      systemd_service:
+      systemd:
         name: tomcat.service
         state: restarted
 
