@@ -1,3 +1,4 @@
+# FLAG-228078ea95932b3233d6
 - name: "Voyou"
   hosts: all
   gather_facts: no
